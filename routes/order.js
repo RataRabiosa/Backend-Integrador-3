@@ -90,7 +90,7 @@ router.post('/', validateAuth, orderValidation, async (req, res) => {
         emailFormat.subject = `Confirmación de Orden #${savedOrder._id}`;
         let productListHtml = '<ul>';
         products.forEach(item => {
-            productListHtml += `<li>${item.quantity}x ${item.name} - $${item.price}</li>`;
+            productListHtml += `<li>${item.quantity}x ${item.name} - $${item.price} c/u</li>`;
         });
         productListHtml += '</ul>';
 
