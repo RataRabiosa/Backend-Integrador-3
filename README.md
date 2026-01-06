@@ -51,7 +51,7 @@ npm run dev
 - lastName
 - email
 - password
-- userRole (opcional, default: "user")
+- userRole (opcional, default: "user", permitidos: "user" o "admin")
 
 #### 📌 Ejemplo de request:
 ```
