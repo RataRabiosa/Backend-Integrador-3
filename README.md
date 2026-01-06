@@ -125,3 +125,64 @@ curl -X POST http://localhost:8080/api/v1/user/reset-password?token=KcY7YsvwTesT
 --header 'Content-Type: application/json' \
 --data '{"newPassword":"123456"}'
 ```
+
+## 📡 Rutas de productos
+### 1️⃣ GET /api/v1/product
+
+#### 📌 Ejemplo de request:
+```
+curl -X GET http://localhost:8080/api/v1/product \
+--header 'Content-Type: application/json'
+````
+
+### 2️⃣ GET /api/v1/product/:id
+#### Parámetros requeridos:
+- Product id
+
+#### 📌 Ejemplo de request:
+```
+curl -X GET http://localhost:8080/api/v1/product/abc123 \
+--header 'Content-Type: application/json'
+````
+
+### 3️⃣ POST /api/v1/product (solo admin)
+#### Parámetros requeridos:
+- Bearer token
+- name
+- price
+- description
+- stock
+- category
+- image
+
+#### 📌 Ejemplo de request:
+```
+curl -X POST http://localhost:8080/api/v1/product \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiamVzdXMiLCJjb3JyZW8iOiJhYmNAMTIzLmNvbSIsImlhdCI6MTc2Mzc2MzIzNSwiZXhwIjoxNzYzNzY2ODM1fQ.juJaculB2ogO6TM-' \
+--data {"name": "Apple", "price": 1.99, "description": "A delicious apple", "stock": 10, "category": "fruits", "image": "http://myimageurl.co"}
+````
+
+### 4️⃣ PATCH /api/v1/product/:id (solo admin)
+#### Parámetros requeridos:
+- Product id
+- Bearer token
+
+#### 📌 Ejemplo de request:
+```
+curl -X PATCH http://localhost:8080/api/v1/product/abc123 \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiamVzdXMiLCJjb3JyZW8iOiJhYmNAMTIzLmNvbSIsImlhdCI6MTc2Mzc2MzIzNSwiZXhwIjoxNzYzNzY2ODM1fQ.juJaculB2ogO6TM-' \
+--data {"price": 10.99}
+````
+
+### 5️⃣ DELETE /api/v1/product/:id (solo admin)
+#### Parámetros requeridos:
+- Product id
+- Bearer token
+
+#### 📌 Ejemplo de request:
+```
+curl -X DELETE http://localhost:8080/api/v1/product/abc123 \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiamVzdXMiLCJjb3JyZW8iOiJhYmNAMTIzLmNvbSIsImlhdCI6MTc2Mzc2MzIzNSwiZXhwIjoxNzYzNzY2ODM1fQ.juJaculB2ogO6TM-'
